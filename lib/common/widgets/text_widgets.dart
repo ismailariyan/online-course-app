@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_course_app/common/utils/app_color.dart';
 
 Widget text24Normal(String text, {Color color = AppColors.primaryText}) {
@@ -7,7 +8,7 @@ Widget text24Normal(String text, {Color color = AppColors.primaryText}) {
     textAlign: TextAlign.center,
     style: TextStyle(
       color: color,
-      fontSize: 24,
+      fontSize: 24.sp,
       fontWeight: FontWeight.bold,
     ),
   );
@@ -20,7 +21,20 @@ Widget text16Normal(String text,
     textAlign: TextAlign.center,
     style: TextStyle(
       color: color,
-      fontSize: 16,
+      fontSize: 16.sp,
+      fontWeight: FontWeight.normal,
+    ),
+  );
+}
+
+Widget text14Normal(String text,
+    {Color color = AppColors.primarySecondaryElementText}) {
+  return Text(
+    text,
+    textAlign: TextAlign.center,
+    style: TextStyle(
+      color: color,
+      fontSize: 14.sp,
       fontWeight: FontWeight.normal,
     ),
   );

@@ -3,24 +3,25 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:online_course_app/common/utils/app_color.dart';
+import 'package:online_course_app/pages/welcome/notifier/welcome_notifier.dart';
 import 'package:online_course_app/pages/welcome/widgets.dart';
-
-final indexProvider = StateProvider<int>((ref) => 0);
 
 class Welcome extends ConsumerWidget {
   Welcome({super.key});
   final PageController _controller = PageController();
   @override
-  Widget build(BuildContext contex, WidgetRef ref) {
-    final index = ref.watch(indexProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final index = ref.watch(indexDotProvider);
     return Container(
-      color: Color(0xFFF5F9FF),
+      color: const Color.fromARGB(255, 245, 249, 255),
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
             actions: [
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/signIn');
+                  },
                   child: const Text(
                     'Skip',
                     style: TextStyle(color: Color(0xFF202244)),
@@ -35,8 +36,7 @@ class Welcome extends ConsumerWidget {
               children: [
                 PageView(
                   onPageChanged: (value) {
-                    print('___my index $value');
-                    ref.read(indexProvider.notifier).state = value;
+                    ref.read(indexDotProvider.notifier).changeIndex(value);
                   },
                   controller: _controller,
                   children: [
@@ -47,6 +47,7 @@ class Welcome extends ConsumerWidget {
                       subTitle:
                           'We Provide Classes Online Classes and Pre Recorded Leactures!',
                       index: 1,
+                      context: context,
                     ),
                     appOnboardingPage(
                       _controller,
@@ -55,6 +56,7 @@ class Welcome extends ConsumerWidget {
                       subTitle:
                           'Booked or Same the Lectures for Future. HEHEHEHEHEHEdfhdfdfd',
                       index: 2,
+                      context: context,
                     ),
                     appOnboardingPage(
                       _controller,
@@ -63,6 +65,7 @@ class Welcome extends ConsumerWidget {
                       subTitle:
                           'Unlock your potential with our high-quality educational content.',
                       index: 3,
+                      context: context,
                     ),
                   ],
                 ),

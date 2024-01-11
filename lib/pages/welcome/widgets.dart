@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_course_app/common/widgets/app_shadow.dart';
 
@@ -10,6 +11,7 @@ Widget appOnboardingPage(
   String title = "",
   String subTitle = "",
   int index = 0,
+  required BuildContext context,
 }) {
   return Column(
     children: [
@@ -28,25 +30,34 @@ Widget appOnboardingPage(
         padding: const EdgeInsets.only(left: 30, right: 30),
         child: text16Normal(subTitle),
       ),
-      _nextButton(index, controller),
+      _nextButton(index, controller, context),
     ],
   );
 }
 
-Widget _nextButton(int index, PageController controller) {
+Widget _nextButton(int index, PageController controller, BuildContext context) {
   return GestureDetector(
     onTap: () {
       if (index < 3) {
         controller.animateToPage(index,
-            duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+            duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
+      } else {
+        // Navigator.of(context)
+        //     .push(MaterialPageRoute(builder: (ctx) => SignIn()));
+        Navigator.pushNamed(
+          context,
+          '/signIn',
+        );
       }
     },
     child: Container(
-      width: 300,
-      height: 70,
+      width: 200.w,
+      height: 50.h,
       margin: const EdgeInsets.only(top: 100, left: 25, right: 25),
       decoration: appBoxShadow(),
-      child: Center(child: text16Normal('Next', color: Colors.white)),
+      child: Center(
+          child: text16Normal(index < 3 ? 'Next' : 'Get Started',
+              color: Colors.white)),
     ),
   );
 }
