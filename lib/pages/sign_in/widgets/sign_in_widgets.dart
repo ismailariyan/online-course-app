@@ -45,7 +45,8 @@ Widget _loginButton(String iconPath) {
   );
 }
 
-Widget appTextField({String text = "", String iconPath = ""}) {
+Widget appTextField(
+    {String text = "", String iconPath = "", String hint = "set hint text"}) {
   return Container(
     padding: EdgeInsets.only(
       left: 25.w,
@@ -58,16 +59,36 @@ Widget appTextField({String text = "", String iconPath = ""}) {
         Container(
           width: 325.h,
           height: 50.h,
-          color: Colors.red,
-          decoration: appBoxShadowTextField(),
+          decoration: appBoxDecorationTextField(),
           child: Row(
             children: [
               Container(
-                child: appImage(),
+                margin: EdgeInsets.only(left: 10.w),
+                child: appImage(imagePath: iconPath),
+              ),
+              Container(
+                width: 280.w,
+                height: 50.h,
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  decoration: InputDecoration(
+                    hintText: hint,
+                    border: const OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent)),
+                    enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent)),
+                    focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent)),
+                  ),
+                  onChanged: (value) {},
+                  maxLines: 1,
+                  autocorrect: false,
+                  obscureText: text == 'Password' ? true : false,
+                ),
               )
             ],
           ),
-        )
+        ),
       ],
     ),
   );

@@ -7,7 +7,7 @@ Widget appImage({
   double height = 16,
 }) {
   return Image.asset(
-    imagePath,
+    imagePath.isEmpty ? "assets/icons/user.png" : imagePath,
     width: width.w,
     height: height.h,
   );

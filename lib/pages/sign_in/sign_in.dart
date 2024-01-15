@@ -17,11 +17,27 @@ class SignIn extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               thirdPartyLogin(),
-              text14Normal('Or sign in with email'),
+              Center(child: text14Normal('Or sign in with email')),
               SizedBox(height: 50.h),
-              appTextField(text: 'Email'),
+              appTextField(
+                  text: 'Email',
+                  iconPath: 'assets/icons/user.png',
+                  hint: 'Enter your email'),
               SizedBox(height: 20.h),
-              appTextField(text: 'Password'),
+              appTextField(
+                  text: 'Password',
+                  iconPath: 'assets/icons/lock.png',
+                  hint: 'Enter your password'),
+              // SizedBox(height: 20.h),
+              GestureDetector(
+                onTap: () {
+                  print('HEHEHEEHEHE');
+                },
+                child: Container(
+                  margin: EdgeInsets.only(left: 25.w, top: 15.h),
+                  child: text14Normal('Forgot password?'),
+                ),
+              ),
             ],
           ),
         ),
@@ -29,5 +45,3 @@ class SignIn extends StatelessWidget {
     );
   }
 }
-
-// TODO : Compltted up to 4h:45mins
