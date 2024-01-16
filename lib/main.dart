@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:online_course_app/common/utils/app_styles.dart';
 import 'package:online_course_app/pages/sign_in/sign_in.dart';
 import 'package:online_course_app/pages/welcome/welcome.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,19 +18,15 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-          scaffoldBackgroundColor: const Color(0xFFF5F9FF),
-        ),
+        theme: AppTheme.appThemeData,
         initialRoute: "/",
         routes: {
           "/": (context) => Welcome(),
-          "/signIn": (context) => SignIn(),
+          "/signIn": (context) => const SignIn(),
         },
         // home: Welcome(),
       ),
     );
   }
 }
-//TODO: 1. watched 5:25
+//TODO: 1. watched 5:

@@ -7,22 +7,23 @@ import 'package:online_course_app/common/widgets/text_widgets.dart';
 
 AppBar buildAppBar() {
   return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: Colors.transparent,
-      title: text16Normal('Sign In', color: AppColors.primaryText),
-      centerTitle: true,
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(1),
-        child: Container(
-          color: Colors.grey,
-          height: 1,
-        ),
-      ));
+    automaticallyImplyLeading: false,
+    backgroundColor: Colors.transparent,
+    title: text16Normal('Sign In', color: AppColors.primaryText),
+    centerTitle: true,
+    bottom: PreferredSize(
+      preferredSize: const Size.fromHeight(1),
+      child: Container(
+        color: Colors.grey,
+        height: 1,
+      ),
+    ),
+  );
 }
 
 Widget thirdPartyLogin() {
   return Container(
-    margin: EdgeInsets.only(left: 80.w, right: 80.w, top: 40.h, bottom: 20.h),
+    margin: EdgeInsets.only(left: 80.w, right: 80.w, top: 20.h, bottom: 20.h),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -59,7 +60,8 @@ Widget appTextField(
         Container(
           width: 325.h,
           height: 50.h,
-          decoration: appBoxDecorationTextField(),
+          decoration: appBoxDecorationTextField(
+              color: Colors.white, borderColor: Colors.white),
           child: Row(
             children: [
               Container(

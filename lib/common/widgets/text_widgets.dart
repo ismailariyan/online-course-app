@@ -39,3 +39,21 @@ Widget text14Normal(String text,
     ),
   );
 }
+
+Widget textUndelineButton(String text,
+    {Color color = AppColors.primarySecondaryElementText, int fontSize = 12}) {
+  return GestureDetector(
+    onTap: () {},
+    child: Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: color,
+        fontSize: fontSize.sp,
+        fontWeight: FontWeight.normal,
+        decoration: TextDecoration.underline,
+        decorationColor: color,
+      ),
+    ),
+  );
+}
