@@ -6,8 +6,8 @@ import 'package:online_course_app/common/widgets/button_widgets.dart';
 import 'package:online_course_app/common/widgets/text_widgets.dart';
 import 'package:online_course_app/pages/sign_in/widgets/sign_in_widgets.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignUP extends StatelessWidget {
+  const SignUP({super.key});
 
   @override
   Widget build(BuildContext context) {

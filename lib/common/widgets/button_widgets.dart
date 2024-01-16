@@ -10,6 +10,9 @@ Widget appButton({
   bool isLogin = true,
 }) {
   return GestureDetector(
+    onTap: () {
+      print('Hello');
+    },
     child: Container(
       width: width.w,
       height: height.h,
