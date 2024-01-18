@@ -8,11 +8,11 @@ Widget appButton({
   double width = 325,
   double height = 50,
   bool isLogin = true,
+  BuildContext? context,
+  void Function()? onPressed,
 }) {
   return GestureDetector(
-    onTap: () {
-      print('Hello');
-    },
+    onTap: onPressed,
     child: Container(
       width: width.w,
       height: height.h,

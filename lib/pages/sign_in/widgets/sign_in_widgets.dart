@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_course_app/common/utils/app_color.dart';
-import 'package:online_course_app/common/widgets/app_shadow.dart';
-import 'package:online_course_app/common/widgets/image_widgets.dart';
-import 'package:online_course_app/common/widgets/text_widgets.dart';
 
 Widget thirdPartyLogin() {
   return Container(

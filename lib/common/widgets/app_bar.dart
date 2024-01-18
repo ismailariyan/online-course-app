@@ -4,7 +4,7 @@ import 'package:online_course_app/common/widgets/text_widgets.dart';
 
 AppBar buildAppBar() {
   return AppBar(
-    automaticallyImplyLeading: false,
+    // automaticallyImplyLeading: false,
     backgroundColor: Colors.transparent,
     title: text16Normal('Sign In', color: AppColors.primaryText),
     centerTitle: true,

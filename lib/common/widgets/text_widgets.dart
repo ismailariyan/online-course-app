@@ -41,9 +41,12 @@ Widget text14Normal(String text,
 }
 
 Widget textUndelineButton(String text,
-    {Color color = AppColors.primarySecondaryElementText, int fontSize = 12}) {
+    {Color color = AppColors.primarySecondaryElementText,
+    int fontSize = 12,
+    BuildContext? context,
+    void Function()? onTap}) {
   return GestureDetector(
-    onTap: () {},
+    onTap: onTap,
     child: Text(
       text,
       textAlign: TextAlign.center,

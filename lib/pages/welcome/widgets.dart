@@ -40,11 +40,12 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
     onTap: () {
       if (index < 3) {
         controller.animateToPage(index,
-            duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut);
       } else {
         // Navigator.of(context)
         //     .push(MaterialPageRoute(builder: (ctx) => SignIn()));
-        Navigator.pushNamed(
+        Navigator.pushReplacementNamed(
           context,
           '/signIn',
         );

@@ -21,10 +21,9 @@ Widget appTextField(
           decoration: appBoxDecorationTextField(
               color: Colors.white, borderColor: Colors.white),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.only(left: 10.w),
+                margin: EdgeInsets.only(left: 10.w, bottom: 3.h),
                 child: appImage(imagePath: iconPath),
               ),
               Container(

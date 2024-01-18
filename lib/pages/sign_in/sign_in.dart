@@ -21,10 +21,10 @@ class SignIn extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20.h),
+                SizedBox(height: 15.h),
                 Center(
                   child: Image.asset('assets/images/anondopath_logo.png',
-                      width: 180.w, height: 150.h),
+                      width: 200.w, height: 180.h),
                 ),
                 SizedBox(height: 10.h),
                 appTextField(
@@ -52,7 +52,11 @@ class SignIn extends StatelessWidget {
                   children: [
                     text14Normal('Don\'t have an account?  '),
                     textUndelineButton('Sign Up',
-                        fontSize: 14, color: AppColors.primaryElement),
+                        fontSize: 14,
+                        color: AppColors.primaryElement,
+                        context: context, onTap: () {
+                      Navigator.pushReplacementNamed(context, '/signUp');
+                    }),
                   ],
                 ),
               ],
