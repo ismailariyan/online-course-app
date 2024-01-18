@@ -4,8 +4,12 @@ import 'package:online_course_app/common/widgets/app_shadow.dart';
 import 'package:online_course_app/common/widgets/image_widgets.dart';
 import 'package:online_course_app/common/widgets/text_widgets.dart';
 
-Widget appTextField(
-    {String text = "", String iconPath = "", String hint = "set hint text"}) {
+Widget appTextField({
+  String text = "",
+  String iconPath = "",
+  String hint = "set hint text",
+  required void Function(String) onChanged,
+}) {
   return Container(
     padding: EdgeInsets.only(
       left: 25.w,
@@ -30,6 +34,9 @@ Widget appTextField(
                 width: 280.w,
                 height: 50.h,
                 child: TextField(
+                  onChanged: (value) {
+                    onChanged(value);
+                  },
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: hint,
@@ -40,7 +47,6 @@ Widget appTextField(
                     focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.transparent)),
                   ),
-                  onChanged: (value) {},
                   maxLines: 1,
                   autocorrect: false,
                   obscureText: text == 'Password' ? true : false,

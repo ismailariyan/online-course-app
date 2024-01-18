@@ -28,14 +28,18 @@ class SignIn extends StatelessWidget {
                 ),
                 SizedBox(height: 10.h),
                 appTextField(
-                    text: 'Email',
-                    iconPath: 'assets/icons/user.png',
-                    hint: 'Enter your email'),
+                  text: 'Email',
+                  iconPath: 'assets/icons/user.png',
+                  hint: 'Enter your email',
+                  onChanged: (value) {},
+                ),
                 SizedBox(height: 20.h),
                 appTextField(
-                    text: 'Password',
-                    iconPath: 'assets/icons/lock.png',
-                    hint: 'Enter your password'),
+                  text: 'Password',
+                  iconPath: 'assets/icons/lock.png',
+                  hint: 'Enter your password',
+                  onChanged: (value) {},
+                ),
                 SizedBox(height: 10.h),
                 Container(
                   margin: EdgeInsets.only(left: 25.w),
@@ -55,7 +59,7 @@ class SignIn extends StatelessWidget {
                         fontSize: 14,
                         color: AppColors.primaryElement,
                         context: context, onTap: () {
-                      Navigator.pushReplacementNamed(context, '/signUp');
+                      Navigator.pushNamed(context, '/signUp');
                     }),
                   ],
                 ),
