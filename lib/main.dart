@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        // title: 'Flutter Demo',
         theme: AppTheme.appThemeData,
         initialRoute: "/",
         routes: {
