@@ -54,7 +54,7 @@ class Welcome extends ConsumerWidget {
                       imagePath: 'assets/images/learning.svg',
                       title: 'Learn from Anytime',
                       subTitle:
-                          'Booked or Same the Lectures for Future. HEHEHEHEHEHEdfhdfdfd',
+                          'Booked or Same the Lectures for Future. ভবিষ্যৎ থাকে জিজ্ঞাসুদের হাতেই',
                       index: 2,
                       context: context,
                     ),
