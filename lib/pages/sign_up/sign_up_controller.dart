@@ -44,26 +44,24 @@ class SignUpController {
     }
     // show the loading icon
     ref.read(appLoaderProvider.notifier).setLoaderValue(true);
-    Future.delayed(Duration(seconds: 2), () async {
-      var context = Navigator.of(ref.context);
-      try {
-        final credential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(email: email, password: password);
-        if (kDebugMode) {
-          print(credential);
-        }
-        if (credential.user != null) {
-          await credential.user?.sendEmailVerification();
-          await credential.user?.updateDisplayName(userName);
-          toastInfo(msg: 'Please check your email to verify your account');
-          context.pop();
-        }
-      } catch (e) {
-        if (kDebugMode) {
-          print(e.toString());
-        }
+    var context = Navigator.of(ref.context);
+    try {
+      final credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      if (kDebugMode) {
+        print(credential);
       }
-      ref.read(appLoaderProvider.notifier).setLoaderValue(false);
-    });
+      if (credential.user != null) {
+        await credential.user?.sendEmailVerification();
+        await credential.user?.updateDisplayName(userName);
+        toastInfo(msg: 'Please check your email to verify your account');
+        context.pop();
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e.toString());
+      }
+    }
+    ref.read(appLoaderProvider.notifier).setLoaderValue(false);
   }
 }

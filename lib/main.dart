@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:online_course_app/common/utils/app_styles.dart';
@@ -5,8 +6,13 @@ import 'package:online_course_app/pages/sign_in/sign_in.dart';
 import 'package:online_course_app/pages/sign_up/sign_up.dart';
 import 'package:online_course_app/pages/welcome/welcome.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -31,3 +37,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+// 3:18
