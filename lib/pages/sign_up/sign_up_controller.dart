@@ -9,16 +9,18 @@ import 'package:online_course_app/pages/sign_up/notifier/register_notifier.dart'
 class SignUpController {
   final WidgetRef ref;
   SignUpController({required this.ref});
+  TextEditingController userNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController repasswordController = TextEditingController();
+
   Future<void> handleSignUp() async {
     var state = ref.read(registerNotifierProvider);
     String userName = state.userName;
     String email = state.email;
     String password = state.password;
     String rePassword = state.rePassword;
-    print('userName: $userName');
-    print('email: $email');
-    print('password: $password');
-    print('rePassword: $rePassword');
+
     if (state.userName.isEmpty || userName.isEmpty) {
       toastInfo(msg: 'Your username is empty');
       return;

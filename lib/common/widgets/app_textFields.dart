@@ -5,6 +5,7 @@ import 'package:online_course_app/common/widgets/image_widgets.dart';
 import 'package:online_course_app/common/widgets/text_widgets.dart';
 
 Widget appTextField({
+  TextEditingController? controller,
   String text = "",
   String iconPath = "",
   String hint = "set hint text",
@@ -34,6 +35,7 @@ Widget appTextField({
                 width: 280.w,
                 height: 50.h,
                 child: TextField(
+                  controller: controller,
                   onChanged: (value) {
                     onChanged(value);
                   },

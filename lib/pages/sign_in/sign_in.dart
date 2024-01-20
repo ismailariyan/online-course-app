@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_course_app/common/global_loader/global_loader.dart';
 import 'package:online_course_app/common/utils/app_color.dart';
 import 'package:online_course_app/common/widgets/app_textFields.dart';
 import 'package:online_course_app/common/widgets/button_widgets.dart';
@@ -27,74 +28,84 @@ class _SignInState extends ConsumerState<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    final signInProvider;
+    final signInProvider = ref.watch(signInNotifierProvider);
+    final loader = ref.watch(appLoaderProvider);
+
     return Container(
       color: const Color.fromARGB(255, 245, 249, 255),
       child: SafeArea(
         child: Scaffold(
           // resizeToAvoidBottomInset: false,
           // appBar: buildAppBar(),
-          body: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 15.h),
-                Center(
-                  child: Image.asset('assets/images/anondopath_logo.png',
-                      width: 200.w, height: 180.h),
-                ),
-                SizedBox(height: 10.h),
-                appTextField(
-                  text: 'Email',
-                  iconPath: 'assets/icons/user.png',
-                  hint: 'Enter your email',
-                  onChanged: (value) {
-                    ref
-                        .read(signInNotifierProvider.notifier)
-                        .onUserEmail(value);
-                  },
-                ),
-                SizedBox(height: 20.h),
-                appTextField(
-                  text: 'Password',
-                  iconPath: 'assets/icons/lock.png',
-                  hint: 'Enter your password',
-                  onChanged: (value) {
-                    ref
-                        .read(signInNotifierProvider.notifier)
-                        .onUserPassword(value);
-                  },
-                ),
-                SizedBox(height: 10.h),
-                Container(
-                  margin: EdgeInsets.only(left: 25.w),
-                  child: textUndelineButton('Forget password?'),
-                ),
-                SizedBox(height: 20.h),
-                Center(
-                    child: appButton(
-                  buttonName: 'Sign In',
-                  onPressed: () => _controller.handleSignIn(),
+          body: loader == false
+              ? SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 15.h),
+                      Center(
+                        child: Image.asset('assets/images/anondopath_logo.png',
+                            width: 200.w, height: 180.h),
+                      ),
+                      SizedBox(height: 10.h),
+                      appTextField(
+                        controller: _controller.emailController,
+                        text: 'Email',
+                        iconPath: 'assets/icons/user.png',
+                        hint: 'Enter your email',
+                        onChanged: (value) {
+                          ref
+                              .read(signInNotifierProvider.notifier)
+                              .onUserEmail(value);
+                        },
+                      ),
+                      SizedBox(height: 20.h),
+                      appTextField(
+                        controller: _controller.passwordController,
+                        text: 'Password',
+                        iconPath: 'assets/icons/lock.png',
+                        hint: 'Enter your password',
+                        onChanged: (value) {
+                          ref
+                              .read(signInNotifierProvider.notifier)
+                              .onUserPassword(value);
+                        },
+                      ),
+                      SizedBox(height: 10.h),
+                      Container(
+                        margin: EdgeInsets.only(left: 25.w),
+                        child: textUndelineButton('Forget password?'),
+                      ),
+                      SizedBox(height: 20.h),
+                      Center(
+                          child: appButton(
+                        buttonName: 'Sign In',
+                        onPressed: () => _controller.handleSignIn(),
+                      )),
+                      SizedBox(height: 20.h),
+                      Center(child: text14Normal('Or Continue with')),
+                      thirdPartyLogin(),
+                      SizedBox(height: 20.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          text14Normal('Don\'t have an account?  '),
+                          textUndelineButton('Sign Up',
+                              fontSize: 14,
+                              color: AppColors.primaryElement,
+                              context: context, onTap: () {
+                            Navigator.pushNamed(context, '/signUp');
+                          }),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              : const Center(
+                  child: CircularProgressIndicator(
+                  backgroundColor: AppColors.primaryBackground,
+                  color: AppColors.primaryElement,
                 )),
-                SizedBox(height: 20.h),
-                Center(child: text14Normal('Or Continue with')),
-                thirdPartyLogin(),
-                SizedBox(height: 20.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    text14Normal('Don\'t have an account?  '),
-                    textUndelineButton('Sign Up',
-                        fontSize: 14,
-                        color: AppColors.primaryElement,
-                        context: context, onTap: () {
-                      Navigator.pushNamed(context, '/signUp');
-                    }),
-                  ],
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );

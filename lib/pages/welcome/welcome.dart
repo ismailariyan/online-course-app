@@ -16,6 +16,7 @@ class Welcome extends ConsumerWidget {
       color: const Color.fromARGB(255, 245, 249, 255),
       child: SafeArea(
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             actions: [
               TextButton(

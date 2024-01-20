@@ -44,6 +44,7 @@ class _SignUPState extends ConsumerState<SignUP> {
                       Center(child: text14Normal('Enter your detail below')),
                       SizedBox(height: 10.h),
                       appTextField(
+                        controller: _controller.userNameController,
                         text: 'Name',
                         iconPath: 'assets/icons/user.png',
                         hint: 'Enter your Name',
@@ -55,6 +56,7 @@ class _SignUPState extends ConsumerState<SignUP> {
                       ),
                       SizedBox(height: 10.h),
                       appTextField(
+                        controller: _controller.emailController,
                         text: 'Email',
                         iconPath: 'assets/icons/user.png',
                         hint: 'Enter your email',
@@ -66,6 +68,7 @@ class _SignUPState extends ConsumerState<SignUP> {
                       ),
                       SizedBox(height: 10.h),
                       appTextField(
+                        controller: _controller.passwordController,
                         text: 'Password ',
                         iconPath: 'assets/icons/lock.png',
                         hint: 'Enter your password',
@@ -77,6 +80,7 @@ class _SignUPState extends ConsumerState<SignUP> {
                       ),
                       SizedBox(height: 10.h),
                       appTextField(
+                        controller: _controller.repasswordController,
                         text: 'Confirm Password',
                         iconPath: 'assets/icons/lock.png',
                         hint: 'Confirm your password',

@@ -7,7 +7,7 @@ class LoginRequestEntity {
   String? email;
   String? phone;
   String? avatar;
-  String? open_id;
+  String? openId;
   int? online;
 
   LoginRequestEntity({
@@ -17,7 +17,7 @@ class LoginRequestEntity {
     this.email,
     this.phone,
     this.avatar,
-    this.open_id,
+    this.openId,
     this.online,
   });
 
@@ -28,7 +28,7 @@ class LoginRequestEntity {
         "email": email,
         "phone": phone,
         "avatar": avatar,
-        "open_id": open_id,
+        "openId": openId,
         "online": online,
       };
 }
@@ -55,7 +55,7 @@ class UserLoginResponseEntity {
 
 // login result
 class UserItem {
-  String? access_token;
+  String? accesToken;
   String? token;
   String? name;
   String? description;
@@ -64,7 +64,7 @@ class UserItem {
   int? type;
 
   UserItem({
-    this.access_token,
+    this.accesToken,
     this.token,
     this.name,
     this.description,
@@ -74,7 +74,7 @@ class UserItem {
   });
 
   factory UserItem.fromJson(Map<String, dynamic> json) => UserItem(
-        access_token: json["access_token"],
+        accesToken: json["access_token"],
         token: json["token"],
         name: json["name"],
         description: json["description"],
@@ -84,7 +84,7 @@ class UserItem {
       );
 
   Map<String, dynamic> toJson() => {
-        "access_token": access_token,
+        "access_token": accesToken,
         "token": token,
         "name": name,
         "description": description,
